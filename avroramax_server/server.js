@@ -5,8 +5,8 @@ const app = express();
 const port = 5001;
 
 // Использование CORS для разрешения только с вашего фронтенда
-app.use(/(.*)/,cors({
-  origin: ['http://localhost:5173', 'avrora-max.vercel.app'],  // Порт вашего фронтенда
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://avrora-max.vercel.app'],  // Порт вашего фронтенда
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
 }));

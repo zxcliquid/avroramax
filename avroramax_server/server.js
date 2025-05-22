@@ -33,11 +33,13 @@ app.post('/send-message', async (req, res) => {
   try {
     console.log("Отправка в Telegram: ", telegramMessage);
 
-    // Отправляем сообщение в Telegram с помощью Bot API
-    await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-      chat_id: TELEGRAM_CHAT_ID,
-      text: telegramMessage,
-    });
+    // Отправляем сообщение в Telegram с помощью Bot API для каждого chat_id
+    for (let chatId of TELEGRAM_CHAT_ID) {
+      await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        chat_id: chatId,
+        text: telegramMessage,
+      });
+    }
 
     res.status(200).json({ success: true });
   } catch (error) {

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVRORA-MAX - Рекламное агентство</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ff6b00;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        nav {
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 0.5rem auto;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+        }
+        
+        .team-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-position {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .social-links {
+            margin: 1.5rem 0;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 0.5rem;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid white;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">AVRORA-MAX</div>
+            <div class="tagline">Инновационные рекламные решения для вашего бизнеса</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#portfolio">Портфолио</a></li>
+                    <li><a href="#team">Команда</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">О нас</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p>Рекламное агентство AVRORA-MAX – ваш надежный партнер в мире рекламы и маркетинга. Мы создаем уникальные рекламные кампании, которые привлекают внимание и приносят результаты.</p>
+                <p>С 2003 года мы помогаем клиентам выделиться на рынке, увеличить узнаваемость бренда и привлечь новых клиентов. Наша миссия – превращать идеи в эффективные рекламные решения.</p>
+                <div style="margin-top: 2rem;">
+                    <a href="#contact" class="btn-primary">Связаться с нами</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background-color: #f0f4f8;">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3 class="service-title">Цифровой маркетинг</h3>
+                    <p>Продвижение вашего бренда через интернет-рекламу, SMM, SEO и контент-маркетинг для привлечения целевой аудитории.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3 class="service-title">Графический дизайн</h3>
+                    <p>Разработка логотипов, фирменного стиля, рекламных материалов и визуальных элементов вашего бренда.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title">Медиапланирование</h3>
+                    <p>Стратегическое планирование размещения рекламы на различных площадках для достижения максимального охвата.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📹</div>
+                    <h3 class="service-title">Видеопродакшн</h3>
+                    <p>Создание рекламных роликов, корпоративных фильмов и видеоконтента для всех платформ.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📢</div>
+                    <h3 class="service-title">Наружная реклама</h3>
+                    <p>Разработка и размещение эффективной наружной рекламы: билборды, вывески, баннеры и другие форматы.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-title">Веб-разработка</h3>
+                    <p>Создание современных адаптивных сайтов и лендингов для вашего бизнеса с учетом SEO-требований.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Наше портфолио</h2>
+            <div class="portfolio">
+                <div class="portfolio-item">
+                    <img src="C:\Users\vlasl\Desktop\Дипломка\Сайт\images\classic.jpg" alt="Проект 1">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Ребрендинг classic</h3>
+                        <p>Комплексный ребрендинг для компании classic, включающий новый логотип, фирменный стиль и маркетинговую стратегию.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="C:\Users\vlasl\Desktop\Дипломка\Сайт\images\PERFECT-COFEE.jpg" alt="Проект 2">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Запуск продукта PERFECT - COFEE</h3>
+                        <p>Разработка и реализация стратегии запуска новой кофейни на Казахстанский рынок.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="c:\Users\vlasl\Desktop\Дипломка\Сайт\images\АКВА МАСТЕР.jpg" alt="Проект 3">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Кампания для магазина сантенического оборудования АКВА МАСТЕР</h3>
+                        <p>Интегрированная рекламная кампания для сети магазинов сантехники в Казахстане, повысившая посещаемость на 35%.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="c:\Users\vlasl\Desktop\Дипломка\Сайт\images\Mon Amie.jpg" alt="Проект 4">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Проект Mon Amie</h3>
+                        <p>Разработка и продвижение магазина косметики и парфюма.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="c:\Users\vlasl\Desktop\Дипломка\Сайт\images\Elcom-Service.jpg" alt="Проект 5">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Диджитал-кампания Elcom-Service</h3>
+                        <p>Комплексная цифровая кампания для копировального центра, включающая SMM и контекстную рекламу.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="c:\Users\vlasl\Desktop\Дипломка\Сайт\images\мебельный салон.jpg" alt="Проект 6">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Веб-платформа БЕЛАРУСЬ&ТУРКИЯ</h3>
+                        <p>Разработка дизайна и запуск интерактивной веб-платформы для онлайн выбора современной мебели.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" style="background-color: #f0f4f8;">
+        <div class="container">
+            <h2 class="section-title">Наша команда</h2>
+            <div class="team">
+                <div class="team-member">
+                    <div class="team-info">
+                        <h3 class="team-name">Сергей Андреев</h3>
+                        <p class="team-position">Генеральный директор</p>
+                        <p>Более 15 лет опыта в маркетинге и рекламе. Эксперт в области стратегического планирования и развития брендов.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <!-- Пример использования онлайн-изображения -->
+                    <div class="team-info">
+                        <h3 class="team-name">Мария Соколова</h3>
+                        <p class="team-position">Креативный директор</p>
+                        <p>Специалист с международным опытом работы. Создает уникальные концепции, которые выделяют бренды среди конкурентов.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-info">
+                        <h3 class="team-name">Дмитрий Волков</h3>
+                        <p class="team-position">Digital-маркетолог</p>
+                        <p>Эксперт в области цифрового маркетинга, SEO и SMM. Помогает клиентам достигать максимальных результатов в онлайн-среде.</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-info">
+                        <h3 class="team-name">Екатерина Петрова</h3>
+                        <p class="team-position">Ведущий дизайнер</p>
+                        <p>Талантливый дизайнер с богатым портфолио. Создает визуальные решения, которые запоминаются и работают на результат.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Связаться с нами</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit">Отправить сообщение</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Адрес</h4>
+                        <p>г. Караганда, ул. Ержанова, 18/2</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h4>Телефон</h4>
+                        <p>+7 700 138 51 50</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>avrora-max@mail.ru</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">AVRORA-MAX</div>
+            <p>Инновационные рекламные решения для вашего бизнеса</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/avrora_max" class="social-link">INST</a>
+                <a href="https://api.whatsapp.com/send/?phone=77001385150&text=Здравствуйте%21%0A%0AПишу+из+приложения+2ГИС.%0A%0A&type=phone_number&app_absent=0" class="social-link">WA</a>
+                <a href="https://www.google.com/maps/place/ТОО+"AVRORA-MAX"+Караганда/@49.7934309,73.0852039,2497m/data=!3m1!1e3!4m6!3m5!1s0x4243475de9fa1ead:0xb2c6750697a0358b!8m2!3d49.7938403!4d73.0851907!16s%2Fg%2F11h42xdd46?hl=ru&entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D" class="social-link">GM</a>
+                <a href="https://2gis.kz/karaganda/firm/11822477302826991/73.085273%2C49.793836?m=73.085575%2C49.793872%2F19.84" class="social-link">2Gis</a>
+            </div>
+            <p>&copy; 2025 AVRORA-MAX. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

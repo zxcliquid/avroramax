@@ -1,0 +1,80 @@
+/* Обертка для блока "О нас" */
+.about-us {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* Главный заголовок */
+  .main-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Вводный текст, подзаголовок */
+  .lead {
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  /* Подзаголовки */
+  .sub-heading {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-top: 40px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  /* Основной текст */
+  .p-about {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    text-align: center;
+  }
+  
+  /* Акцент на ключевых словах */
+  strong {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  
+  /* Стилизация абзацев */
+  .p-about:nth-child(even) {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  /* Контейнер для фото */
+  .about-us .container img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  }
+  
+  /* Дополнительное оформление для ссылок */
+  a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

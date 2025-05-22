@@ -417,7 +417,64 @@ footer {
     border: 1px solid #007bff;
   }
 
-@media (max-width: 768px) {
+
+  @media (max-width: 768px) {
+    header {
+        padding: 1.5rem 0;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .portfolio-item {
+        height: 200px;
+    }
+
+    .service-title, .team-name {
+        font-size: 1.2rem;
+    }
+
+    .team-member img {
+        height: 200px;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    button {
+        padding: 0.6rem 1.5rem;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .social-links {
+        margin-top: 1rem;
+    }
+
+    .social-link {
+        width: 32px;
+        height: 32px;
+    }
+
+    .btn-primary, .btn-outline {
+        padding: 0.6rem 1.5rem;
+    }
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -434,9 +491,61 @@ footer {
     .hero-title {
         font-size: 2rem;
     }
+    h2 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 1rem 0;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .service-title, .team-name {
+        font-size: 1rem;
+    }
+
+    .team-member img {
+        height: 180px;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+
+    button {
+        padding: 0.5rem 1.2rem;
+    }
+
+    .social-link {
+        width: 28px;
+        height: 28px;
+    }
+
+    .btn-primary, .btn-outline {
+        padding: 0.5rem 1.2rem;
+    }
 }
 p, h1, h2,h3,h4, a, label{font-family: 'Merriweather', serif;
 
 }
+
+
 
   

@@ -1,80 +1,177 @@
 /* Обертка для блока "О нас" */
 .about-us {
-    background-color: #f4f4f4;
-    padding: 60px 20px;
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-  }
-  
+  background-color: #f4f4f4;
+  padding: 60px 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Главный заголовок */
+.main-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Вводный текст, подзаголовок */
+.lead {
+  font-size: 20px;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Подзаголовки */
+.sub-heading {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-top: 40px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Основной текст */
+.p-about {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* Акцент на ключевых словах */
+strong {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Стилизация абзацев */
+.p-about:nth-child(even) {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Контейнер для фото */
+.about-us .container img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+/* Дополнительное оформление для ссылок */
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1024px) {
   .container {
-    width: 80%;
-    margin: 0 auto;
+      width: 90%; /* Увеличиваем ширину контейнера */
   }
-  
-  /* Главный заголовок */
+
   .main-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+      font-size: 28px; /* Уменьшаем размер заголовка */
+      margin-bottom: 15px;
   }
-  
-  /* Вводный текст, подзаголовок */
+
   .lead {
-    font-size: 20px;
-    line-height: 1.6;
-    text-align: center;
-    margin-bottom: 40px;
+      font-size: 18px; /* Уменьшаем размер шрифта */
+      margin-bottom: 30px;
   }
-  
-  /* Подзаголовки */
+
   .sub-heading {
-    font-size: 28px;
-    color: #2c3e50;
-    margin-top: 40px;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    font-weight: 700;
+      font-size: 24px; /* Уменьшаем размер подзаголовка */
+      margin-top: 30px;
   }
-  
-  /* Основной текст */
+
   .p-about {
-    margin-top: 20px;
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    text-align: justify;
-    text-align: center;
+      font-size: 14px; /* Уменьшаем размер текста */
+      margin-top: 10px;
   }
-  
-  /* Акцент на ключевых словах */
-  strong {
-    color: #e74c3c;
-    font-weight: bold;
-  }
-  
-  /* Стилизация абзацев */
+
   .p-about:nth-child(even) {
-    background-color: #ecf0f1;
-    padding: 15px;
-    border-radius: 5px;
+      padding: 10px; /* Уменьшаем паддинг в четных параграфах */
   }
-  
-  /* Контейнер для фото */
+}
+
+@media (max-width: 768px) {
+  .about-us {
+      padding: 40px 10px; /* Уменьшаем паддинги на мобильных */
+  }
+
+  .main-heading {
+      font-size: 24px; /* Меньше размер шрифта для мобильных */
+      margin-bottom: 10px;
+  }
+
+  .lead {
+      font-size: 16px; /* Уменьшаем размер шрифта для мобильных */
+      margin-bottom: 25px;
+  }
+
+  .sub-heading {
+      font-size: 22px; /* Уменьшаем подзаголовки */
+      margin-top: 30px;
+  }
+
+  .p-about {
+      font-size: 14px; /* Меньший текст */
+      margin-top: 10px;
+      text-align: left; /* Выравнивание текста слева */
+  }
+
+  .p-about:nth-child(even) {
+      padding: 10px; /* Уменьшаем padding */
+  }
+
   .about-us .container img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
+      margin-top: 20px; /* Уменьшаем отступы сверху для изображений */
   }
-  
-  /* Дополнительное оформление для ссылок */
+
   a {
-    color: #3498db;
-    text-decoration: none;
+      font-size: 14px; /* Уменьшаем размер шрифта ссылок */
   }
-  
-  a:hover {
-    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+      font-size: 20px; /* Еще меньше размер шрифта для маленьких экранов */
+      margin-bottom: 10px;
   }
+
+  .lead {
+      font-size: 14px; /* Уменьшаем шрифт */
+      margin-bottom: 20px;
+  }
+
+  .sub-heading {
+      font-size: 20px; /* Подзаголовки для маленьких экранов */
+      margin-top: 20px;
+  }
+
+  .p-about {
+      font-size: 13px; /* Еще меньше текст */
+      text-align: left; /* Выравнивание по левому краю */
+      margin-top: 5px;
+  }
+
+  .about-us .container img {
+      margin-top: 15px; /* Меньше отступы для изображений */
+  }
+}
+

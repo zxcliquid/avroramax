@@ -14,7 +14,7 @@ app.use(cors({
 app.use(express.json());  // Для парсинга JSON в теле запроса
 
 const TELEGRAM_BOT_TOKEN = '7121884471:AAFMVgFoMm98NEgc2avb5Vqp6_wiK93wTn4';  // Замените на ваш токен бота
-const TELEGRAM_CHAT_ID = '1329758440';  // Замените на ваш chat_id
+const TELEGRAM_CHAT_ID = ['1329758440', '765227659'];  // Замените на ваш chat_id
 
 // Обработчик OPTIONS-запросов для CORS
 app.options('*', cors());  // Убедитесь, что OPTIONS-запросы разрешены

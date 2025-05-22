@@ -215,4 +215,11 @@
   .slick-next {
     padding: 6px;
   }
+  .testimonials{
+    height: 420px;
+    width: 420px;
+  }
+  .testimonial-card{
+    height: 330px;
+  }
 }

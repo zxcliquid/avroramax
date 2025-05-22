@@ -5,7 +5,7 @@ import L from 'leaflet'; // Для кастомизации маркера
 import 'leaflet/dist/leaflet.css'; // Стили для карты
 
 // Координаты для местоположения (например, офис в Караганде)
-const position = [49.7934309, 73.0852039];
+const position = [49.793737408326024, 73.08446851188751];
 
 const ContactMap = () => {
   return (

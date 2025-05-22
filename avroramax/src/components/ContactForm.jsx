@@ -36,7 +36,7 @@ const ContactForm = () => {
     try {
       console.log('Отправка данных:', formData);  // Логирование данных формы
 
-      const response = await axios.post('http://localhost:5001/send-message', formData);
+      const response = await axios.post('https://avroramax-1.onrender.com', formData);
 
       console.log('Ответ от сервера:', response);  // Логирование ответа сервера
 

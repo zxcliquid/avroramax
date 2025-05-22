@@ -6,7 +6,7 @@ const port = 5001;
 
 // Использование CORS для разрешения только с вашего фронтенда
 app.use(/(.*)/,cors({
-  origin: 'http://localhost:5173',  // Порт вашего фронтенда
+  origin: ['http://localhost:5173', 'https://avroramax-1.onrender.com'],  // Порт вашего фронтенда
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
 }));

@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
       <div className="container">
-      <img src="./images/logo.png" alt="Логотип" width={128} />
+      <a href="/"><img src="./images/logo.png" alt="Логотип" width={128} /></a>
         <div className="logo"><a href="/">AVRORA-MAX</a></div>
         <div className="tagline">Инновационные рекламные решения для вашего бизнеса</div>
         <nav>
